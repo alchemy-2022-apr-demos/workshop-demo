@@ -1,4 +1,5 @@
 import { checkAuth, getWorkshops, logout } from '../fetch-utils.js';
+import { renderWorkshop } from '../render-utils.js';
 
 checkAuth();
 
@@ -9,8 +10,12 @@ logoutButton.addEventListener('click', () => {
 });
 
 async function loadData() {
+    const main = document.querySelector('main');
     const data = await getWorkshops();
-    console.log(data);
+    for (let workshop of data) {
+        const workshopElem = renderWorkshop(workshop);
+        main.append(workshopElem);
+    }
 }
 
 loadData();
