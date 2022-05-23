@@ -1,0 +1,15 @@
+.workshop {
+    width: 75vw;
+    border: 3px solid var(--color5);
+    padding: 20px;
+}
+
+.workshop li:hover {
+    background-color: var(--color3);
+    cursor: pointer;
+}
+
+.workshop li:hover::after {
+    padding-left: 5px;
+    content: '❌';
+}
